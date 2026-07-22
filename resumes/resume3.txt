@@ -1,0 +1,8 @@
+Kumar
+
+Python Developer
+
+Skills:
+Python
+Flask
+PostgreSQL

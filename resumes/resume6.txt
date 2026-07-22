@@ -1,0 +1,9 @@
+Hindhuja
+
+Backend Developer
+
+Skills:
+Python
+Django
+PostgreSQL
+Docker

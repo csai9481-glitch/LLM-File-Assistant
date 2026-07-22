@@ -1,0 +1,8 @@
+Charan
+
+Python Developer
+
+Skills:
+Python
+Django
+REST API

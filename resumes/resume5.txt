@@ -1,0 +1,9 @@
+Suseela
+
+Frontend Developer
+
+Skills:
+HTML
+CSS
+JavaScript
+React
