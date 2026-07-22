@@ -1,10 +1,15 @@
-from fs_tools import read_file, list_files, search_in_file, write_file
+from fs_tools import read_file
+from fs_tools import list_files
+from fs_tools import search_in_file
+from fs_tools import write_file
+
 
 while True:
 
     query = input("\nAsk me something: ")
 
     if query.lower() == "exit":
+
         print("Goodbye!")
         break
 
@@ -14,12 +19,18 @@ while True:
 
         for file in files:
 
-            result = read_file(f"resumes/{file}")
+            result = read_file(
+                f"resumes/{file['name']}"
+            )
 
             print("\n------------------")
-            print(file)
+            print(file["name"])
             print("------------------")
-            print(result["content"])
+
+            if result["success"]:
+                print(result["content"])
+            else:
+                print(result["error"])
 
     elif "python" in query.lower():
 
@@ -30,25 +41,34 @@ while True:
         for file in files:
 
             result = search_in_file(
-                f"resumes/{file}",
+                f"resumes/{file['name']}",
                 "Python"
             )
 
             if result["matches"]:
-                print(file)
+                print(file["name"])
 
     elif "summary" in query.lower():
 
-        result = read_file("resumes/resume1.txt")
-
-        summary = result["content"][:100]
-
-        write_file(
-            "summary.txt",
-            summary
+        result = read_file(
+            "resumes/resume1.txt"
         )
 
-        print("Summary file created!")
+        if result["success"]:
+
+            summary = result["content"][:100]
+
+            write_file(
+                "summaries/summary.txt",
+                summary
+            )
+
+            print("Summary file created!")
+
+        else:
+
+            print(result["error"])
 
     else:
+
         print("Sorry, I don't understand.")
